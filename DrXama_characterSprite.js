@@ -562,7 +562,7 @@ Game_Interpreter.prototype.characterSpriteProcessCommand = function (command) {
         case gc.ROUTE_CHANGE_BLEND_MODE:
             if (command.routeId[0] == 'player') {
                 this.pluginCommand.call(this, command.routeSprite, ['blend', params[0]]);
-                $gamePlayer._followers._data.map(follower => {
+                $gamePlayer._followers._data.map(function (follower) {
                     var followerId = follower._memberIndex;
                     this.pluginCommand.call(this, 'followersprite', [followerId, 'blend', params[0]]);
                 }, this);
